@@ -1,11 +1,14 @@
 import React from "react";
 import * as classes from "./Breadcrumbs.module.css";
-
-import { activeDirectory } from "../../Sidebar/Tree/Tree";
+import { useSelector, useDispatch } from "react-redux";
+import { changeDirectory } from "../../../actions/directory";
 
 const Breadcrumbs = () => {
+  const { activeDirectory} = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const changeActiveDirectoryHandler = (paths, index) => {
-    activeDirectory.path = paths.slice(0, index + 1).join("/");
+    dispatch(changeDirectory({path: paths.slice(0, index + 1).join("/")}));
   };
 
   let paths = activeDirectory.path.split("/");

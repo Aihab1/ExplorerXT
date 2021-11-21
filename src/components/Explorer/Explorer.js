@@ -3,10 +3,13 @@ import Breadcrumbs from "./Breadcrumbs/Breadcrumbs";
 import * as classes from "./Explorer.module.css";
 import Search from "./Search/Search";
 import fileIcon from "../../assets/document.png";
-
-import { activeDirectory, allDirectories } from "../Sidebar/Tree/Tree";
+import { useSelector, useDispatch } from "react-redux";
+import { updateFileData } from "../../actions/directory";
 
 const Explorer = () => {
+  const { activeDirectory, allDirectories } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const dirPathKeys = activeDirectory.path.split("/").slice(1);
   let activeDirectoryData = allDirectories;
   for (const k of dirPathKeys) {
@@ -15,7 +18,7 @@ const Explorer = () => {
   const filesData = activeDirectoryData.children;
   let files = [];
   for (const file in filesData) {
-    if(!filesData[file]?.leaf) {
+    if (!filesData[file]?.leaf) {
       continue;
     }
     files.push(
@@ -35,11 +38,17 @@ const Explorer = () => {
   const [currentFileData, setCurrentFileData] = useState("");
 
   const saveFile = () => {
-    if(currentFileKey.length > 0 && filesData) {
-      filesData[currentFileKey].data = currentFileData;
+    if (currentFileKey.length > 0 && filesData) {
+      dispatch(
+        updateFileData({
+          data: currentFileData,
+          path: activeDirectoryData.children[currentFileKey].path,
+        })
+      );
+      //activeDirectoryData.children[currentFileKey].data = currentFileData;
     }
     setShowEditModal(false);
-  }
+  };
 
   const displayModal = (file, filesData) => {
     setCurrentFileKey(file);
@@ -59,11 +68,12 @@ const Explorer = () => {
           <h1>{currentFileKey}</h1>
         </div>
         <div className={classes.editModalContent}>
-          <textarea value={currentFileData} onChange={e => setCurrentFileData(e.target.value)} />
+          <textarea
+            value={currentFileData}
+            onChange={(e) => setCurrentFileData(e.target.value)}
+          />
         </div>
-        <button onClick={saveFile}>
-          Save file
-        </button>
+        <button onClick={saveFile}>Save file</button>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@
   margin-left: 5px;
   padding: 20px;
   width: 100%;
+  height: calc(100vh);
+  overflow: auto;
 }
 
 .explorerHeader {

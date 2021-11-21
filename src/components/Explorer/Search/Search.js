@@ -2,21 +2,26 @@ import React, { useState } from "react";
 import * as classes from "./Search.module.css";
 import fileIcon from "../../../assets/document.png";
 import folderIcon from "../../../assets/folder-closed.png";
+import { useSelector, useDispatch } from "react-redux";
+import { addFile, addFolder } from "../../../actions/directory";
 
 const Search = () => {
+  const dispatch = useDispatch();
+  const { activeDirectory } = useSelector((state) => state);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showFileFolderModal, setShowFileFolderModal] = useState(false);
   const [isFile, setIsFile] = useState(true);
+  const [fileOrFolderName, setFileOrFolderName] = useState("");
 
   const addFileFolderHandler = (fileOrFolder) => {
-    if(fileOrFolder === "file") {
+    if (fileOrFolder === "file") {
       setIsFile(true);
     } else {
       setIsFile(false);
     }
     setShowFileFolderModal(true);
     setShowAddModal(false);
-  }
+  };
 
   const addModal = (
     <div className={classes.addModal}>
@@ -24,6 +29,16 @@ const Search = () => {
       <button onClick={() => addFileFolderHandler("folder")}>Folder</button>
     </div>
   );
+
+  const createFileFolderHandler = (isFile) => {
+    if(isFile) {
+      dispatch(addFile({path: activeDirectory.path, fileName: fileOrFolderName}));
+    } else {
+      dispatch(addFolder({path: activeDirectory.path, folderName: fileOrFolderName}));
+    }
+    setShowFileFolderModal(false);
+    setFileOrFolderName("");
+  };
 
   const fileFolderModal = (
     <div className={classes.fileFolderModalOuter}>
@@ -33,11 +48,18 @@ const Search = () => {
       ></div>
       <div className={classes.fileFolderModal}>
         <div className={classes.fileFolderInner}>
-          <img src={isFile ? fileIcon : folderIcon} alt={`${isFile ? 'file' : 'folder'} icon`} />
-          <input placeholder={`Enter ${isFile ? 'file' : 'folder'} name`}/>
+          <img
+            src={isFile ? fileIcon : folderIcon}
+            alt={`${isFile ? "file" : "folder"} icon`}
+          />
+          <input
+            value={fileOrFolderName}
+            placeholder={`Enter ${isFile ? "file" : "folder"} name`}
+            onChange={(e) => setFileOrFolderName(e.target.value)}
+          />
         </div>
-        <button>
-          Create {`${isFile ? 'File' : 'Folder'}`}
+        <button onClick={() => createFileFolderHandler(isFile)}>
+          Create {`${isFile ? "File" : "Folder"}`}
         </button>
       </div>
     </div>
@@ -57,7 +79,10 @@ const Search = () => {
         </svg>
       </div>
       <div className={classes.addBar}>
-        <button className={classes.addButton} onClick={() => setShowAddModal((prevState) => !prevState)}>
+        <button
+          className={classes.addButton}
+          onClick={() => setShowAddModal((prevState) => !prevState)}
+        >
           +
         </button>
         {showAddModal && addModal}

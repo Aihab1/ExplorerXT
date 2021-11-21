@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -31,4 +32,32 @@ code {
 .App {
   min-height: 100vh;
   display: flex;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 7px;
+  transition: all 0.5s ease;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(253, 189, 65);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(233, 105, 106);
+  opacity: 0.8;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
 }

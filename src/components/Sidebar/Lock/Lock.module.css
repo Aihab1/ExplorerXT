@@ -1,3 +1,7 @@
+.lock {
+  margin-top: 20px;
+}
+
 .lock button, .unlockButton {
   outline: none;
   background: none;
