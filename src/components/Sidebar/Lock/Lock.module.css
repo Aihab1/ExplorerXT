@@ -1,0 +1,17 @@
+.lock button {
+  outline: none;
+  background: none;
+  padding: 10px 20px;
+  border: 3px solid rgb(37, 38, 40);
+  width: 100%;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lock button:hover {
+  background:rgb(37, 38, 40);
+}
