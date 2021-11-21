@@ -4,6 +4,10 @@ import * as classes from "./Breadcrumbs.module.css";
 import { activeDirectory } from "../../Sidebar/Tree/Tree";
 
 const Breadcrumbs = () => {
+  const changeActiveDirectoryHandler = (paths, index) => {
+    activeDirectory.path = paths.slice(0, index + 1).join("/");
+  };
+
   let paths = activeDirectory.path.split("/");
   return (
     <div className={classes.breadcrumbs}>
@@ -16,7 +20,7 @@ const Breadcrumbs = () => {
               key={`${path}_${index}`}
               style={{ display: "flex", alignItems: "center", height: '25px' }}
             >
-              <button>{path.split("%").join(" ")}</button>
+              <button onClick={() => changeActiveDirectoryHandler(paths, index)}>{path.split("%").join(" ")}</button>
             </div>
           );
         }
@@ -26,7 +30,7 @@ const Breadcrumbs = () => {
             style={{ display: "flex", alignItems: "center", height: '25px' }}
           >
             <div className={classes.slash}>/</div>
-            <button>{path.split("%").join(" ")}</button>
+            <button onClick={() => changeActiveDirectoryHandler(paths, index)}>{path.split("%").join(" ")}</button>
           </div>
         );
       })}

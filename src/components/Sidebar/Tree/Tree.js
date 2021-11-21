@@ -5,7 +5,7 @@ import folderOpen from "../../../assets/folder-open.png";
 
 export const activeDirectory = {
   path: "/Instruments/Fender/Electric%Guitar",
-}
+};
 
 export const allDirectories = {
   module: "Root",
@@ -25,7 +25,7 @@ export const allDirectories = {
           path: "/Instruments/Fender",
           collapsed: false,
           children: {
-            "Acoustic%Guitar":{
+            "Acoustic%Guitar": {
               id: "root-3",
               module: "Acoustic Guitar",
               path: "/Instruments/Fender/Acoustic%Guitar",
@@ -36,8 +36,15 @@ export const allDirectories = {
               id: "root-4",
               module: "Electric Guitar",
               path: "/Instruments/Fender/Electric%Guitar",
-              collapsed: true,
+              collapsed: false,
               children: {
+                "Electric%Folder": {
+                  id: "root-7",
+                  module: "Electric Folder",
+                  path: "/Instruments/Fender/Electric%Guitar/Electric%Folder",
+                  collapsed: true,
+                  children: {},
+                },
                 White: {
                   id: "1",
                   module: "White",
@@ -65,9 +72,18 @@ export const allDirectories = {
         },
         Yamaha: {
           module: "Yamaha",
+          path: "/Instruments/Yamaha",
           id: "root-5",
-          collapsed: true,
-          children: {},
+          collapsed: false,
+          children: {
+            Bike: {
+              id: "4",
+              module: "Bike",
+              path: "/Instruments/Yamaha/Bike",
+              leaf: true,
+              data: "This is a yamaha bike.",
+            },
+          },
         },
       },
     },
@@ -81,39 +97,46 @@ export const allDirectories = {
   },
 };
 
-const findChildren = (children) => {
-  if (Object.keys(children).length === 0) {
-    return "";
-  }
-  let childrenTree = [];
-  for (let key in children) {
-    let child = children[key];
-    if (child.leaf) {
-      childrenTree.push(
-        <div className={classes.dirOuter} key={child.id}>
-          {child.module}
-        </div>
-      );
-    } else {
-      childrenTree.push(
-        <div key={child.id}>
-          <div className={`${classes.dirOuter} ${child.path === activeDirectory.path && classes.active}`}>
-            <img src={`${child.collapsed ? folderCollapsed : folderOpen}`} alt={`folder ${child.collapsed ? 'closed' : 'opened'}`}/>
-            {child.module}
-          </div>
-          {!child.collapsed && (
-            <div style={{ marginLeft: "25px" }}>
-              {findChildren(child.children)}
-            </div>
-          )}
-        </div>
-      );
-    }
-  }
-  return childrenTree;
-};
-
 const Tree = () => {
+  const changeActiveDirectoryHandler = (child) => {
+    activeDirectory.path = child.path;
+  };
+  
+  const findChildren = (children) => {
+    if (Object.keys(children).length === 0) {
+      return "";
+    }
+    let childrenTree = [];
+    for (let key in children) {
+      let child = children[key];
+      if (child.leaf) {
+        continue;
+      } else {
+        childrenTree.push(
+          <div key={child.id}>
+            <div
+              className={`${classes.dirOuter} ${
+                child.path === activeDirectory.path && classes.active
+              }`}
+              onClick={() => changeActiveDirectoryHandler(child)}
+            >
+              <img
+                src={`${child.collapsed ? folderCollapsed : folderOpen}`}
+                alt={`folder ${child.collapsed ? "closed" : "opened"}`}
+              />
+              {child.module}
+            </div>
+            {!child.collapsed && (
+              <div style={{ marginLeft: "25px" }}>
+                {findChildren(child.children)}
+              </div>
+            )}
+          </div>
+        );
+      }
+    }
+    return childrenTree;
+  };
   const tree = findChildren(allDirectories.children);
   return <div className={classes.tree}>{tree}</div>;
 };

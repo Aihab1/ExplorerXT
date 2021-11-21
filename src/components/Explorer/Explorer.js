@@ -15,6 +15,9 @@ const Explorer = () => {
   const filesData = activeDirectoryData.children;
   let files = [];
   for (const file in filesData) {
+    if(!filesData[file]?.leaf) {
+      continue;
+    }
     files.push(
       <button
         key={filesData[file]?.id}
