@@ -1,0 +1,146 @@
+.explorer {
+  margin-left: 5px;
+  padding: 20px;
+  width: 100%;
+}
+
+.explorerHeader {
+  min-height: 100px;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  border-bottom: 2px solid #2c2d31;
+  width: 100%;
+}
+
+.explorerBody {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: max-content;
+}
+
+.file img {
+  width: 100px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.file:hover {
+  background: #2c2d31;
+  border-radius: 5px;
+}
+
+.editModalOuter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(7px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editModal {
+  background: #2c2d31;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 11;
+  margin: 20px;
+  padding: 40px;
+  border-radius: 25px;
+  border: 1px solid rgb(136, 136, 136);
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.editModalTitle {
+  display: flex;
+  width: 100%;
+}
+
+.editModalTitle img {
+  width: 40px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.editModalTitle h1 {
+  font-size: 1.8rem;
+  color: rgb(136, 136, 136);
+  font-weight: 400;
+}
+
+.editModalContent {
+  width: 100%;
+  height: 100%;
+  margin: 25px 0;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.editModalContent textarea {
+  resize: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 3px solid rgb(37, 38, 40);
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.editModal button {
+  outline: none;
+  background: none;
+  padding: 10px 20px;
+  border: 3px solid rgb(37, 38, 40);
+  width: 100%;
+  max-width: 250px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.editModal button:hover {
+  background:rgb(37, 38, 40);
+}

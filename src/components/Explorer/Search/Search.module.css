@@ -1,0 +1,93 @@
+.search {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  margin-left: auto;
+}
+
+.searchBar {
+  position: relative;
+}
+
+.search input {
+  padding: 10px 50px 10px 20px;
+  border: none;
+  outline: none;
+  color: rgb(136, 136, 136);
+  background: rgb(44, 45, 49);
+  border-radius: 25px;
+  font-size: 1.1rem;
+}
+
+.search svg {
+  fill: rgb(136, 136, 136);
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.addButton {
+  outline: none;
+  background: linear-gradient(
+    to top left,
+    rgb(250, 240, 93),
+    rgb(253, 189, 65)
+  );
+  font-size: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  color: rgb(233, 105, 106);
+  margin: 0 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addButton:hover {
+  transform: rotate(180deg);
+}
+
+.addBar {
+  position: relative;
+}
+
+.addModal {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 25px;
+  padding: 15px;
+  border-radius: 25px;
+  background:rgb(44, 45, 49);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 170px;
+}
+
+.addModal button {
+  background: none;
+  outline: none;
+  border: none;
+  color: #fff;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.addModal button:hover {
+  text-decoration: dotted underline;
+}
+
+.addModal :nth-child(1) {
+  border-bottom: 2px solid #242627;
+}
