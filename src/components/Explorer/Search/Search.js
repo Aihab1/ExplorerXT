@@ -5,7 +5,8 @@ import folderIcon from "../../../assets/folder-closed.png";
 import { useSelector, useDispatch } from "react-redux";
 import { addFile, addFolder } from "../../../actions/directory";
 
-const Search = () => {
+const Search = ({ setSearch }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const { activeDirectory } = useSelector((state) => state);
   const [showAddModal, setShowAddModal] = useState(false);
@@ -31,10 +32,14 @@ const Search = () => {
   );
 
   const createFileFolderHandler = (isFile) => {
-    if(isFile) {
-      dispatch(addFile({path: activeDirectory.path, fileName: fileOrFolderName}));
+    if (isFile) {
+      dispatch(
+        addFile({ path: activeDirectory.path, fileName: fileOrFolderName })
+      );
     } else {
-      dispatch(addFolder({path: activeDirectory.path, folderName: fileOrFolderName}));
+      dispatch(
+        addFolder({ path: activeDirectory.path, folderName: fileOrFolderName })
+      );
     }
     setShowFileFolderModal(false);
     setFileOrFolderName("");
@@ -68,8 +73,21 @@ const Search = () => {
   return (
     <div className={classes.search}>
       <div className={classes.searchBar}>
-        <input placeholder="Search.." />
-        <svg className="svg-icon" viewBox="0 0 20 20">
+        <input
+          placeholder="Search.."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setSearch(searchTerm);
+            }
+          }}
+        />
+        <svg
+          className="svg-icon"
+          viewBox="0 0 20 20"
+          onClick={() => setSearch(searchTerm)}
+        >
           <path
             d="M19.129,18.164l-4.518-4.52c1.152-1.373,1.852-3.143,1.852-5.077c0-4.361-3.535-7.896-7.896-7.896
 								c-4.361,0-7.896,3.535-7.896,7.896s3.535,7.896,7.896,7.896c1.934,0,3.705-0.698,5.078-1.853l4.52,4.519
