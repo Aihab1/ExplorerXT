@@ -1,12 +1,45 @@
 import React, { useState } from "react";
 import * as classes from "./Search.module.css";
+import fileIcon from "../../../assets/document.png";
+import folderIcon from "../../../assets/folder-closed.png";
 
 const Search = () => {
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showFileFolderModal, setShowFileFolderModal] = useState(false);
+  const [isFile, setIsFile] = useState(true);
+
+  const addFileFolderHandler = (fileOrFolder) => {
+    if(fileOrFolder === "file") {
+      setIsFile(true);
+    } else {
+      setIsFile(false);
+    }
+    setShowFileFolderModal(true);
+    setShowAddModal(false);
+  }
+
   const addModal = (
     <div className={classes.addModal}>
-      <button>File</button>
-      <button>Folder</button>
+      <button onClick={() => addFileFolderHandler("file")}>File</button>
+      <button onClick={() => addFileFolderHandler("folder")}>Folder</button>
+    </div>
+  );
+
+  const fileFolderModal = (
+    <div className={classes.fileFolderModalOuter}>
+      <div
+        className={classes.backdrop}
+        onClick={() => setShowFileFolderModal(false)}
+      ></div>
+      <div className={classes.fileFolderModal}>
+        <div className={classes.fileFolderInner}>
+          <img src={isFile ? fileIcon : folderIcon} alt={`${isFile ? 'file' : 'folder'} icon`} />
+          <input placeholder={`Enter ${isFile ? 'file' : 'folder'} name`}/>
+        </div>
+        <button>
+          Create {`${isFile ? 'File' : 'Folder'}`}
+        </button>
+      </div>
     </div>
   );
 
@@ -29,6 +62,7 @@ const Search = () => {
         </button>
         {showAddModal && addModal}
       </div>
+      {showFileFolderModal && fileFolderModal}
     </div>
   );
 };

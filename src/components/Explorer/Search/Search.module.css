@@ -91,3 +91,84 @@
 .addModal :nth-child(1) {
   border-bottom: 2px solid #242627;
 }
+
+.fileFolderModalOuter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(7px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileFolderModal {
+  background: #2c2d31;
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 11;
+  margin: 20px;
+  padding: 40px;
+  border-radius: 25px;
+  border: 1px solid rgb(136, 136, 136);
+}
+
+.fileFolderModal img {
+  width: 50px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.fileFolderModal input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: 3px solid rgb(37, 38, 40);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.fileFolderInner {
+  display: flex;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.fileFolderModal button {
+  outline: none;
+  background: none;
+  padding: 10px 20px;
+  border: 3px solid rgb(37, 38, 40);
+  width: 100%;
+  max-width: 250px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.fileFolderModal button:hover {
+  background:rgb(37, 38, 40);
+}
