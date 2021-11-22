@@ -1,70 +1,96 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <a href="https://explorerxt.netlify.app/">
+    ExplorerXT
+  </a>
+</h1>
+<p align="center">By Aihab</p>
 
-## Available Scripts
+<p align="center">
+  ExplorerXT is an online text file manager. It's a single-user application accessible with a 4 digit pin.
+</p>
+<p align="center">
+  <strong><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" /> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /></strong>
+</p>
+    
+![image](https://user-images.githubusercontent.com/55903466/142914415-704611b6-2de4-4e89-9055-e6d253cd6576.png)
 
-In the project directory, you can run:
+> The PIN for the deployed website (demo) is 7777. Siiiuuuuuu.
 
-### `yarn start`
+## 🗂 Project Breakdown
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 1. React Client - Frontend
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Description:
+- In the left sidebar, there is a directory tree that expands all the folders inside on folder click and shows files stored in that folder on the right.
+- There are clickable breadcrumbs on top, which show the current folder path.
+- A new file/folder can be created in the selected folder by clicking the plus button on the top right.
+- Plus button click opens a dropdown showing option to create a file or folder. After selecting file/folder a dialog pops-up.
+- Clicking the file opens a dialog to update the content of that file.
+- Users can search files in a folder (current directory or children directories) with file name or content.
+- The lock button blurs and locks the screen, which can only be unlocked after the correct pin is entered. When the application is opened for the first time, the screen is locked by default.
+> Since this is a frontend-only website, the contents behind the lock screen CAN be accessed without entering the PIN by manipulating the browser DOM.
 
-### `yarn test`
+#### Features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Responsive layout for desktop 1366px to 2048px**
+    - The website is currently NOT responsive for mobile devices.
 
-### `yarn build`
+2. **File/Folder modal dropdown**
+    - The modal that shows create "File or Folder" option.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Breadcrumbs**
+    - Breadcrumbs for navigating between the directories.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **File/Folder modal**
+    - Custom modal for creating and specifying the file/folder name.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. **Lock modal with good UX**
+    - Custom lock modal with PIN input and blurred overlay.
 
-### `yarn eject`
+6. **Expandable dynamic Sidebar**
+    - Resizable siderbar for navigating.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+7. **Search files with name and content**
+    - Search file down the current directory by filename/file content.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🖼 Website Images
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Entering the PIN.
+![image](https://user-images.githubusercontent.com/55903466/142916270-5ab8f13b-3be0-48a7-b9ad-444793bfac48.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Creating a file.
+![image](https://user-images.githubusercontent.com/55903466/142916656-569cc9f8-b3df-4dd4-b223-514d8f7b0d7f.png)
 
-## Learn More
+Editing a file.
+![image](https://user-images.githubusercontent.com/55903466/142916729-f785f0eb-1c3f-4d61-b3a2-bd10f97e4cda.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Searching a file inside /Instruments.
+![image](https://user-images.githubusercontent.com/55903466/142916826-382f47b5-9bd4-462a-9f50-e6fc5d283e88.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## ▶ Run the project locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 1. Clone the `ExplorerXT` repository
+```
+git clone https://github.com/Aihab1/ExplorerXT.git
+# cd into the project directory and refer .env.example file to create your own .env file for storing environment variables. Please make sure you complete this step before running the application.
+```
 
-### Analyzing the Bundle Size
+### 2. Install package dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Open a terminal to run the following commands.
 
-### Making a Progressive Web App
+**Inside the Terminal:**
+```
+yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 3. Start development servers
 
-### Advanced Configuration
+**Inside the Terminal**
+```
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> The client runs on localhost:3000 by default.
