@@ -2,8 +2,9 @@
   font-weight: 600;
   font-size: 1.1rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 10px 10px 0;
 }
 
 .breadcrumbs button {

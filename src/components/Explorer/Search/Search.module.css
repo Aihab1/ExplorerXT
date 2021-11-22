@@ -3,10 +3,13 @@
   align-items: center;
   margin: 10px 0;
   margin-left: auto;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
 }
 
 .searchBar {
   position: relative;
+  margin-right: 20px;
 }
 
 .search input {
@@ -45,7 +48,9 @@
   height: 45px;
   text-align: center;
   color: rgb(233, 105, 106);
-  margin: 0 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
