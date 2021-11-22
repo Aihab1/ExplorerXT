@@ -7,7 +7,7 @@ const Lock = () => {
   const [pass, setPass] = useState(["", "", "", ""]);
 
   const handleUnlock = () => {
-    if (pass.every((el) => el === 7)) {
+    if (pass.every((el, idx) => parseInt(el) === parseInt(process.env.REACT_APP_PIN[idx]))) {
       setShowLockModal(false);
     } else {
       setShowError(true);
@@ -22,7 +22,7 @@ const Lock = () => {
     setPass(
       pass.map((p, i) =>
         i === idx
-          ? event.target.value === ""
+          ? isNaN(event.target.value) || event.target.value === ""
             ? ""
             : event.target.value % 10
           : p

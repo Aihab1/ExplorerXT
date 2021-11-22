@@ -141,7 +141,6 @@ const directoryReducer = (state = initialState, action) => {
         }
         count++;
       }
-
       activeDirectoryData.children[fileName] = {
         id: `${activeDirectoryData.id}-${
           Object.keys(activeDirectoryData.children).length
