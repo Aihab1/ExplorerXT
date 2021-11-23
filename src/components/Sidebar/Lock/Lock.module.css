@@ -77,7 +77,7 @@
 }
 
 .error {
-  border-color:rgb(36, 36, 36) !important;
+  border-color: rgb(255, 70, 70) !important;
 }
 
 @media screen and (max-width: 768px) {
