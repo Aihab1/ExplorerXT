@@ -17,6 +17,10 @@
   transition: all 0.1s ease;
 }
 
+.unlockButton {
+  max-width: 300px;
+}
+
 .lock button:hover {
   background:rgb(37, 38, 40);
 }
@@ -53,6 +57,12 @@
   border: 1px solid rgb(136, 136, 136);
 }
 
+.lockModalPassword {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .lockModalPassword .input {
   width: 60px;
   height: 60px;
@@ -67,5 +77,11 @@
 }
 
 .error {
-  border-color:rgb(255, 70, 70) !important;
+  border-color:rgb(36, 36, 36) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .lockModalPassword .input, .lock button, .unlockButton {
+    border-width: 0.2rem;
+  }
 }

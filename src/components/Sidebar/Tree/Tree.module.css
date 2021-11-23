@@ -3,6 +3,10 @@
   color: #fff;
 }
 
+.childDivs {
+  margin-left: 25px;
+}
+
 .dirOuter {
   padding: 7px 15px;
   border-radius: 5px;
@@ -24,4 +28,22 @@
 
 .active, .dirOuter:hover {
   background: rgba(0,0,0,0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .childDivs {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .childDivs {
+    margin-left: 10px;
+  }
+  .dirOuter img {
+    height: 13px;
+  }
+  .dirOuter {
+    padding: 5px 10px;
+  }
 }

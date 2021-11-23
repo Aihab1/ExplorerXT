@@ -177,3 +177,41 @@
 .fileFolderModal button:hover {
   background:rgb(37, 38, 40);
 }
+
+@media screen and (max-width: 768px) {
+  .addButton {
+    width: 35px;
+    height: 35px;
+  }
+  .addModal {
+    min-width: 140px;
+  }
+  .fileFolderModal input, .fileFolderModal button {
+    border-width: 0.2rem;
+  }
+  .fileFolderModal input { 
+    padding: 0 10px;
+    width: 300px;
+  }
+  .search svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .addButton {
+    width: 30px;
+    height: 30px;
+  }
+  .addModal {
+    min-width: 100px;
+  }
+  .fileFolderModal img {
+    width: 40px;
+  }
+  .search svg {
+    width: 18px;
+    height: 18px;
+  }
+}

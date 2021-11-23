@@ -63,3 +63,15 @@ code {
 ::-webkit-scrollbar-button {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  * {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  * {
+    font-size: 0.5rem;
+  }
+}
