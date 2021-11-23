@@ -191,7 +191,7 @@
   }
   .fileFolderModal input { 
     padding: 0 10px;
-    width: 300px;
+    max-width: 300px;
   }
   .search svg {
     width: 20px;
