@@ -69,3 +69,7 @@
 .error {
   border-color:rgb(255, 70, 70) !important;
 }
+
+.success {
+  border-color: rgb(7, 133, 7) !important;
+}
