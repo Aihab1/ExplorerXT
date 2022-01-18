@@ -15,3 +15,15 @@
 .logo h1 {
   font-size: 1.6rem;
 }
+
+@media screen and (max-width: 550px) {
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  .logo h1 {
+    margin: 10px 0;
+  }
+}

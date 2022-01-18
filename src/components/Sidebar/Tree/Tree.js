@@ -38,7 +38,7 @@ const Tree = () => {
               {child.module}
             </div>
             {!child.collapsed && (
-              <div style={{ marginLeft: "25px" }}>
+              <div className={classes.childDivs}>
                 {findChildren(child.children)}
               </div>
             )}

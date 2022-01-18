@@ -39,3 +39,24 @@
   z-index: 10;
   width: 300px;
 }
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+    margin: 15px 0 15px 15px;
+    height: calc(100vh - 30px);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .sidebar {
+    width: 130px;
+    padding: 10px;
+    margin: 10px 0 10px 10px;
+    height: calc(100vh - 20px);
+  }
+  .resizer {
+    display: none;
+  }
+}

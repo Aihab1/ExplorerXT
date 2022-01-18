@@ -93,6 +93,7 @@
 .editModalTitle {
   display: flex;
   width: 100%;
+  align-items: center;
 }
 
 .editModalTitle img {
@@ -145,4 +146,49 @@
 
 .editModal button:hover {
   background:rgb(37, 38, 40);
+}
+
+@media screen and (max-width: 768px) {
+  .file img {
+    width: 70px; 
+  }
+  .editModalContent textarea, .editModal button {
+    border-width: 0.2rem;
+  }
+  .file {
+    margin: 5px;
+  }
+  .editModal {
+    max-width: 500px;
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .file img {
+    width: 50px; 
+  }
+  .explorer {
+    padding: 10px;
+  }
+  .explorerHeader {
+    padding: 10px 0;
+  }
+  .explorerBody {
+    padding: 5px;
+  }
+  .file {
+    margin: 5px;
+  }
+  .editModal {
+    padding: 20px;
+    margin: 10px;
+  }
+  .editModalContent {
+    margin: 15px 0;
+  }
+  .editModal {
+    max-width: 400px;
+    max-height: 350px;
+  }
 }
